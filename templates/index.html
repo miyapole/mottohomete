@@ -1,12 +1,21 @@
 {% extends 'base.html' %}
 {% block content %}
 
+<p>毎日毎日頑張っても、全然報われない…</p>
+<p>私がやるのが当たり前と思われて、ありがとうも言われない…</p>
+<p>誰かに自分のがんばりを褒められたい！</p>
+<p>そんなあなたのために…</br>
+    ワンクリックで褒めてもらえるサービス、できました。</p>
 
     <form action="/login" method = "POST"  >
         名前：<input type="text" name="name"> </br>
         頑張った事1：<input type="text" name =""> </br>
         頑張った事2：<input type="text" name =""> </br>
         頑張った事3：<input type="text" name =""> </br>
+       <input type="radio" name="level1" value="普通の褒め"> 普通の褒め 
+      <input type="radio" name="level2" value="まあまあの褒め"> まあまあの褒め
+      <input type="radio" name="level3" value="ぶっ飛んだ褒め">   ぶっ飛んだ褒め
+    </br>
         <input type="submit" value="さあ褒めて" name="save">
     </form>
 
