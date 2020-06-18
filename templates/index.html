@@ -1,23 +1,12 @@
-<<<<<<< HEAD
 {% extends 'base.html' %}
 {% block content %}
 
-    <p>{{name}}さん、めんそーれ！！</p>
+
+<form action="/login" method = "POST"  >
+    名前：<input type="text" name="name">
+    パスワード：<input type="text" name ="password">
+    <input type="submit" value="ログイン" name="save">
+</form>
 
 {% endblock %}
-=======
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <p>test</p>
-    <p>test2</p>
-    
-    <p>hehee</p>
-</body>
-</html>
->>>>>>> c081bce3a8eb03c9612c9072ea9836093234678e
+
