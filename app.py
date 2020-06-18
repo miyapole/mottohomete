@@ -14,6 +14,9 @@ app.secret_key = "sunabaco"
 def helloworld():
     return "Hello World."
 
+@app.route("/index.html")
+def toppage():
+    return render_template("index.html")
 
 @app.errorhandler(404)
 def notfound(code):
