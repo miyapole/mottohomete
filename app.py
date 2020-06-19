@@ -11,12 +11,25 @@ app = Flask(__name__)
 app.secret_key = "sunabaco"
 
 @app.route("/")
-def helloworld():
-    return "Hello World."
-
-@app.route("/index.html")
-def toppage():
+def index():
     return render_template("index.html")
+
+@app.route('/login' ,methods=["POST"])
+def login():
+    # user_id = session['user_id']
+
+    name = request.form.get("name")
+    homete1 = request.form.get("homete1")
+    homete2 = request.form.get("homete2")
+    homete3 = request.form.get("homete3")
+    conn = sqlite3.connect('homete.db')
+    c = conn.cursor()
+    c.execute("insert into user_id values(null,?,?,?,?)", (name,homete1,homete2,homete3))
+
+    conn.commit()
+    conn.close()
+    print(name)
+    return "返信ページいくよ〜〜〜"
 
 @app.errorhandler(404)
 def notfound(code):
