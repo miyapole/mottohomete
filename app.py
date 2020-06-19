@@ -18,13 +18,18 @@ def index():
 def login():
     # user_id = session['user_id']
 
-    comment = request.form.get("comment")
+    name = request.form.get("name")
+    homete1 = request.form.get("homete1")
+    homete2 = request.form.get("homete2")
+    homete3 = request.form.get("homete3")
     conn = sqlite3.connect('homete.db')
     c = conn.cursor()
+    c.execute("insert into user_id values(null,?,?,?,?)", (name,homete1,homete2,homete3))
 
     conn.commit()
     conn.close()
-    return redirect('/bbs')
+    print(name)
+    return "返信ページいくよ〜〜〜"
 
 @app.errorhandler(404)
 def notfound(code):
