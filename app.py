@@ -11,12 +11,20 @@ app = Flask(__name__)
 app.secret_key = "sunabaco"
 
 @app.route("/")
-def helloworld():
-    return "Hello World."
-
-@app.route("/index.html")
-def toppage():
+def index():
     return render_template("index.html")
+
+@app.route('/login' ,methods=["POST"])
+def login():
+    # user_id = session['user_id']
+
+    comment = request.form.get("comment")
+    conn = sqlite3.connect('homete.db')
+    c = conn.cursor()
+
+    conn.commit()
+    conn.close()
+    return redirect('/bbs')
 
 @app.errorhandler(404)
 def notfound(code):
