@@ -19,4 +19,10 @@ h1 {
 
 input {
     margin: 0 0 10px 0;
+    color:green;
+    background-color: greenyellow;
+}
+
+footer {
+    background-color: greenyellow;
 }

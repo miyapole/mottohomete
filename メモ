@@ -1,0 +1,2 @@
+名前とhomete1,2,3を「さあ褒めて」のsubmitでDBのuser_idに格納
+普通(small)、まあまあ(medium)、ぶっ飛んだ(large)の選択結果に応じてuser_id + (small, medium, large)合体させたものをランダムで結果画面に抽出

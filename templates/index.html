@@ -9,14 +9,20 @@
     ワンクリックで褒めてもらえるサービス、できました。</p>
 </section>
 
+    <p>お名前と頑張ったことを三つ入力してください。</br>
+        もしも今日は1日何もできなかったけど褒められたい！</br>
+        という場合は、「呼吸」「排泄」「まばたき」と入力しましょう。</br>
+        私たちはそもそも、生きてるだけで尊い。ブチアゲの存在です。
+    </p>
+
     <form action="/login" method = "POST"  >
         名前：<input type="text" name="name"> </br>
-        頑張った事1：<input type="text" name =""> </br>
-        頑張った事2：<input type="text" name =""> </br>
-        頑張った事3：<input type="text" name =""> </br>
+        頑張った事1：<input type="text" name ="homete1"> </br>
+        頑張った事2：<input type="text" name ="homete2"> </br>
+        頑張った事3：<input type="text" name ="homete3"> </br>
        <input type="radio" name="level1" value="普通の褒め"> 普通の褒め 
       <input type="radio" name="level2" value="まあまあの褒め"> まあまあの褒め
-      <input type="radio" name="level3" value="ぶっ飛んだ褒め">   ぶっ飛んだ褒め
+      <input type="radio" name="level3" value="ぶっ飛んだ褒め">  ぶっ飛んだ褒め
     </br>
         <input type="submit" value="さあ褒めて" name="save">
     </form>
