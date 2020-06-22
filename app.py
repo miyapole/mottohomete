@@ -36,9 +36,9 @@ def result():
     
     conn = sqlite3.connect('homete.db')
     c = conn.cursor()
-    p1 = request.form.get("level")
-    p2 = request.form.get("level")
-    p3 = request.form.get("level")
+    # p1 = request.form.get("level")
+    # p2 = request.form.get("level")
+    # p3 = request.form.get("level")
 
     c.execute("SELECT small_word FROM small ORDER BY RANDOM()")
     p1 = c.fetchone()
