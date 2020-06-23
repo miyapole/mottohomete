@@ -7,6 +7,7 @@
 <p>誰かに自分のがんばりを褒められたい！</p>
 <p>そんなあなたのために…</br>
     ワンクリックで褒めてもらえるサービス、できました。</p>
+    <form action="/login" method = "POST">
 </section>
 
     <p>お名前と頑張ったことを三つ入力してください。</br>
@@ -20,9 +21,9 @@
         頑張った事1：<input type="text" name ="homete1"> </br>
         頑張った事2：<input type="text" name ="homete2"> </br>
         頑張った事3：<input type="text" name ="homete3"> </br>
-       <input  type="radio" name="level" value="普通の褒め"> 普通の褒め 
-      <input  type="radio" name="level" value="まあまあの褒め"> まあまあの褒め
-      <input type="radio" name="level" value="ぶっ飛んだ褒め">  ぶっ飛んだ褒め
+       <input  type="radio" name="level" id="r1" value="普通の褒め"> 普通の褒め 
+      <input  type="radio" name="level" id="r2" value="まあまあの褒め"> まあまあの褒め
+      <input type="radio" name="level" id="r3" value="ぶっ飛んだ褒め">  ぶっ飛んだ褒め
     </br>
         <input id="btn" type="submit" value="さあ褒めて" name="save">
     </form>

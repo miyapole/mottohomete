@@ -14,7 +14,12 @@ app.secret_key = "sunabaco"
 def index():
     return render_template("index.html")
 
-@app.route('/login' ,methods=["POST"])
+# @app.route('/form_post', methods=['POST'])
+# def form_post():
+#     print(request.form.get('level', None))
+#     return redirect(url_for('login'))
+
+@app.route('/login' ,methods=["GET", "POST"])
 def login():
     # user_id = session['user_id']
 
@@ -25,21 +30,6 @@ def login():
     conn = sqlite3.connect('homete.db')
     c = conn.cursor()
     c.execute("insert into user_id values(null,?,?,?,?)", (name,homete1,homete2,homete3))
-
-    conn.commit()
-    conn.close()
-    print(name,homete1,homete2,homete3)
-    return redirect('/result')
-
-@app.route('/result' ,methods=['GET'])
-def result():
-    
-    conn = sqlite3.connect('homete.db')
-    c = conn.cursor()
-    p1 = request.form.get("level")
-    p2 = request.form.get("level")
-    p3 = request.form.get("level")
-
     c.execute("SELECT small_word FROM small ORDER BY RANDOM()")
     p1 = c.fetchone()
     c.execute("SELECT medium_word FROM medium ORDER BY RANDOM()")
@@ -47,15 +37,19 @@ def result():
     c.execute("SELECT large_word FROM large ORDER BY RANDOM()")
     p3 = c.fetchone()
 
+    conn.commit()
+    conn.close()
+
+    print(name,homete1,homete2,homete3)
     print (p1)
     print (p2)
     print (p3)
 
-    conn.commit()
-    conn.close()
-    
-    return "結果ページにいくよ"
+    return redirect('/result')
 
+@app.route('/result' ,methods=["GET"])
+def result():
+    return "結果ページ"
 
 
 
