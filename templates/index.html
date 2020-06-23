@@ -1,12 +1,22 @@
 {% extends 'base.html' %}
 {% block content %}
 
+<section id="description">
 <p>毎日毎日頑張っても、全然報われない…</p>
 <p>私がやるのが当たり前と思われて、ありがとうも言われない…</p>
 <p>誰かに自分のがんばりを褒められたい！</p>
 <p>そんなあなたのために…</br>
     ワンクリックで褒めてもらえるサービス、できました。</p>
     <form action="/login" method = "POST">
+</section>
+
+    <p>お名前と頑張ったことを三つ入力してください。</br>
+        もしも今日は1日何もできなかったけど褒められたい！</br>
+        という場合は、「呼吸」「排泄」「まばたき」と入力しましょう。</br>
+        私たちはそもそも、生きてるだけで尊い。ブチアゲの存在です。
+    </p>
+
+    <form action="/login" method = "POST"  >
         名前：<input type="text" name="name"> </br>
         頑張った事1：<input type="text" name ="homete1"> </br>
         頑張った事2：<input type="text" name ="homete2"> </br>
