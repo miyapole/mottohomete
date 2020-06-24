@@ -58,6 +58,11 @@ def login():
         p=p2
     else:
         p=p3
+
+    p = str(p).replace('(name)', name)
+    p = str(p).replace('(homete1)', homete1)
+    p = str(p).replace('(homete2)', homete2)
+    p = str(p).replace('(homete3)', homete3)
     
     return render_template("result.html",p=p)
 
