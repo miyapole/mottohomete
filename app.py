@@ -30,6 +30,18 @@ def login():
     conn = sqlite3.connect('homete.db')
     c = conn.cursor()
     c.execute("insert into user_id values(null,?,?,?,?)", (name,homete1,homete2,homete3))
+    level = request.form.get("radio")
+    # if level == "普通の褒め":
+    #     c.execute("select small_word from smaill where id = RANDOM()")
+    #     p = c.fetchone()
+    # elif level == "まあまあの褒め":
+    #     c.execute("select midium_word from midium where id = RANDOM()")
+    #     p = c.fetchone()
+    # else: 
+    #     c.execute("select large_word from large where id = RANDOM()")
+    #     p = c.fetchone()
+
+
     c.execute("SELECT small_word FROM small ORDER BY RANDOM()")
     p1 = c.fetchone()
     c.execute("SELECT medium_word FROM medium ORDER BY RANDOM()")
@@ -40,17 +52,14 @@ def login():
     conn.commit()
     conn.close()
 
-    print(name,homete1,homete2,homete3)
-    print (p1)
-    print (p2)
-    print (p3)
-
-    return redirect('/result')
-
-@app.route('/result' ,methods=["GET"])
-def result():
-    return "結果ページ"
-
+    if level =="普通の褒め":
+        p=p1
+    elif level =="まあまあの褒め":
+        p=p2
+    else:
+        p=p3
+    
+    return render_template("result.html",p=p)
 
 
 @app.errorhandler(404)
