@@ -30,7 +30,8 @@ def login():
     conn = sqlite3.connect('homete.db')
     c = conn.cursor()
     c.execute("insert into user_id values(null,?,?,?,?)", (name,homete1,homete2,homete3))
-    level = request.form.get("radio")
+    level = request.form.get("level")
+    
     # if level == "普通の褒め":
     #     c.execute("select small_word from smaill where id = RANDOM()")
     #     p = c.fetchone()
@@ -42,7 +43,7 @@ def login():
     #     p = c.fetchone()
 
 
-    c.execute("SELECT small_word FROM small ORDER BY RANDOM()")
+    c.execute("SELECT small_word FROM small ORDER BY  RANDOM()")
     p1 = c.fetchone()
     c.execute("SELECT medium_word FROM medium ORDER BY RANDOM()")
     p2 = c.fetchone()
@@ -58,7 +59,12 @@ def login():
         p=p2
     else:
         p=p3
-    
+
+    p = str(p).replace('name', name)
+    p = str(p).replace('homete1', homete1)
+    p = str(p).replace('homete2', homete2)
+    p = str(p).replace('homete3', homete3)
+
     return render_template("result.html",p=p)
 
 
