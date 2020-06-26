@@ -44,11 +44,11 @@ def login():
 
 
     c.execute("SELECT small_word FROM small ORDER BY  RANDOM()")
-    p1 = c.fetchone()
+    p1 = c.fetchone()[0]
     c.execute("SELECT medium_word FROM medium ORDER BY RANDOM()")
-    p2 = c.fetchone()
+    p2 = c.fetchone()[0]
     c.execute("SELECT large_word FROM large ORDER BY RANDOM()")
-    p3 = c.fetchone()
+    p3 = c.fetchone()[0]
 
     conn.commit()
     conn.close()
@@ -60,13 +60,12 @@ def login():
     else:
         p=p3
 
+
     p = str(p).replace('name', name)
     p = str(p).replace('homete1', homete1)
     p = str(p).replace('homete2', homete2)
     p = str(p).replace('homete3', homete3)
 
-    type(p)
-    print(p)
     return render_template("result.html",p=p)
 
 
