@@ -60,6 +60,7 @@ def login():
     else:
         p=p3
 
+
     p = str(p).replace('name', name)
     p = str(p).replace('homete1', homete1)
     p = str(p).replace('homete2', homete2)
